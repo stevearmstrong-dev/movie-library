@@ -6,19 +6,22 @@ import React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Route, Routes } from 'react-router-dom';
 import { Actors, Movies, MovieInformation, Profile, NavBar } from './index';
+import { StyledDiv, StyledMain, StyledToolbar } from './styles';
 
 const App = () => (
-  <div>
+  <StyledDiv>
     <CssBaseline />
     <NavBar />
-    <main>
+    <StyledMain>
+      <StyledToolbar />
       <Routes>
         <Route path="/movie/:id" element={<MovieInformation />} />
         <Route path="/actors/:id" element={<Actors />} />
         <Route path="/" element={<Movies />} />
         <Route path="/profile/:id" element={<Profile />} />
       </Routes>
-    </main>
-  </div>
+    </StyledMain>
+  </StyledDiv>
 );
+
 export default App;
