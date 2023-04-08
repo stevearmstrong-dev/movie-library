@@ -11,6 +11,8 @@ export const StyledMain = styled('main')({
   padding: '2em',
 });
 export const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+  height: '80px',
+  marginLeft: '240px',
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
