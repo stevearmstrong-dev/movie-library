@@ -2,7 +2,7 @@ import React from 'react';
 import { AppBar, IconButton, Toolbar,Drawer, Button, Avatar, useMediaQuery } from '@mui/material';
 import { Menu, AccountCircle, Brightness4, Brightness7 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-import { StyledDiv, StyledMain, StyledToolbar, MenuButton } from './styles';
+import { StyledDiv, StyledMain, StyledToolbar, MenuButton, StyledGroup } from './styles';
 import { useTheme }from '@mui/material/styles';
 
 const NavBar = () => {
@@ -25,15 +25,17 @@ const NavBar = () => {
             <Menu />
           </MenuButton>
           )}
-          <MenuButton
-            color="inherit"
-            sx={{ ml: 1 }}
-            onClick={() => {}}
-          >
-            {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
-          </MenuButton>
-          {!isMobile && 'Search...'}
-          <div>
+          <StyledGroup>
+            <MenuButton
+              color="inherit"
+              sx={{ ml: 1 }}
+              onClick={() => {}}
+            >
+              {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
+            </MenuButton>
+            {!isMobile && 'Search...'}
+          </StyledGroup>
+          <StyledGroup>
             {!isAuthenticated ? (
               <Button color="inherit" onClick={()=>{}}>
                 {/* nbsp stands for a space between the login button and the icon */}
@@ -54,7 +56,7 @@ const NavBar = () => {
                 />
               </Button>
             )}
-          </div>
+          </StyledGroup>
           {/* If we are on mobile, show the search last */}
           {isMobile && 'Search...'}
         </StyledToolbar>

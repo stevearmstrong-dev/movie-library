@@ -1,5 +1,5 @@
 import { styled } from '@mui/system';
-import { IconButton } from '@mui/material';
+import { IconButton, Toolbar } from '@mui/material';
 
 export const StyledDiv = styled('div')({
   display: 'flex',
@@ -10,14 +10,11 @@ export const StyledMain = styled('main')({
   flexGrow: 1,
   padding: '2em',
 });
-
-export const StyledToolbar = styled('div')(({ theme }) => ({
-  height: '80px',
+export const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
-  marginLeft: '240px',
+  alignItems: 'center',
   [theme.breakpoints.down('sm')]: {
-    marginLeft: '10px',
     flexWrap: 'wrap',
   },
 }));
@@ -31,5 +28,13 @@ export const MenuButton = styled(IconButton)(({ theme }) => ({
   },
 }));
 
-export const LinkButton = styled(IconButton)(({theme})=>({
+export const StyledGroup = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  [theme.breakpoints.down('sm')]: {
+    flexWrap: 'wrap',
+  },
+}));
+
+export const LinkButton = styled(IconButton)(({ theme }) => ({
 }));
