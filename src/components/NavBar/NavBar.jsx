@@ -2,7 +2,7 @@ import React from 'react';
 import { AppBar, IconButton, Toolbar,Drawer, Button, Avatar, useMediaQuery } from '@mui/material';
 import { Menu, AccountCircle, Brightness4, Brightness7 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-import { StyledDiv, StyledMain, StyledToolbar, MenuButton, StyledGroup } from './styles';
+import { StyledDiv, StyledMain, StyledToolbar, MenuButton, StyledGroup, ThemeToggleButton } from './styles';
 import { useTheme }from '@mui/material/styles';
 
 const NavBar = () => {
@@ -25,14 +25,16 @@ const NavBar = () => {
             <Menu />
           </MenuButton>
           )}
+          <ThemeToggleButton
+            edge="start"
+            style={{ outline: 'none' }}
+            color="inherit"
+            sx={{ ml: 1 }}
+            onClick={() => {}}
+          >
+            {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
+          </ThemeToggleButton>
           <StyledGroup>
-            <MenuButton
-              color="inherit"
-              sx={{ ml: 1 }}
-              onClick={() => {}}
-            >
-              {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
-            </MenuButton>
             {!isMobile && 'Search...'}
           </StyledGroup>
           <StyledGroup>

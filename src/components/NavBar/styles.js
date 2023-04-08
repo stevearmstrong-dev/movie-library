@@ -36,5 +36,9 @@ export const StyledGroup = styled('div')(({ theme }) => ({
   },
 }));
 
+export const ThemeToggleButton = styled(IconButton)(({ theme }) => ({
+  marginRight: theme.spacing(2),
+}));
+
 export const LinkButton = styled(IconButton)(({ theme }) => ({
 }));
