@@ -1,11 +1,13 @@
-import React from 'react';
-import { AppBar, IconButton, Toolbar,Drawer, Button, Avatar, useMediaQuery } from '@mui/material';
+import React, { useState } from 'react';
+import { AppBar, IconButton, Toolbar, Drawer, Button, Avatar, useMediaQuery } from '@mui/material';
 import { Menu, AccountCircle, Brightness4, Brightness7 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-import { StyledDiv, StyledMain, StyledToolbar, MenuButton, StyledGroup, ThemeToggleButton } from './styles';
 import { useTheme }from '@mui/material/styles';
+import { StyledDiv, StyledMain, StyledToolbar, MenuButton, StyledGroup, ThemeToggleButton, NavDrawer, DrawerPaper } from './styles';
+import Sidebar from '../Sidebar/Sidebar';
 
 const NavBar = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
   console.log('NavBar');
   // If the screen is less than 600px wide, then the media query will return true
   const isMobile = useMediaQuery('(max-width: 600px)');
@@ -39,7 +41,7 @@ const NavBar = () => {
           </StyledGroup>
           <StyledGroup>
             {!isAuthenticated ? (
-              <Button color="inherit" onClick={()=>{}}>
+              <Button color="inherit" onClick={() => {}}>
                 {/* nbsp stands for a space between the login button and the icon */}
                 Login &nbsp; <AccountCircle />
               </Button>
@@ -64,6 +66,35 @@ const NavBar = () => {
         </StyledToolbar>
 
       </AppBar>
+      <div>
+        <NavDrawer>
+          {isMobile ? (
+            <Drawer
+              variant="temporary"
+              anchor="right"
+              open={mobileOpen}
+              classes={{ paper: DrawerPaper }}
+              ModalProps={{ keepMounted: true }}
+            >
+              <Sidebar setMobileOpen={setMobileOpen} />
+            </Drawer>
+          ) : (
+            // Below code is for desktop view
+            <Drawer
+              classes={{
+                paper: DrawerPaper }}
+                // because we always want the sidebar visible
+              variant="permanent"
+              // sidebar is now present on the left side of the app
+              anchor="left"
+              ModalProps={{ keepMounted: true }}
+              open
+            >
+              <Sidebar setMobileOpen={setMobileOpen} />
+            </Drawer>
+          )}
+        </NavDrawer>
+      </div>
     </>
 
   );
