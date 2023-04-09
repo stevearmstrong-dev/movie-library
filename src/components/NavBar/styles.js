@@ -12,6 +12,21 @@ export const StyledMain = styled('main')({
   flexGrow: 1,
   padding: '2em',
 });
+
+// Before
+// export const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+//   height: '80px',
+//   marginLeft: '240px',
+//   display: 'flex',
+//   justifyContent: 'space-between',
+//   alignItems: 'center',
+//   [theme.breakpoints.down('sm')]: {
+//     flexWrap: 'wrap',
+//   },
+// }));
+
+// After
+
 export const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   height: '80px',
   marginLeft: '240px',
@@ -19,7 +34,8 @@ export const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   justifyContent: 'space-between',
   alignItems: 'center',
   [theme.breakpoints.down('sm')]: {
-    flexWrap: 'wrap',
+    marginLeft: 0,
+    justifyContent: 'space-evenly',
   },
 }));
 
@@ -32,11 +48,26 @@ export const MenuButton = styled(IconButton)(({ theme }) => ({
   },
 }));
 
+// Before
+// export const StyledGroup = styled('div')(({ theme }) => ({
+//   display: 'flex',
+//   alignItems: 'center',
+//   [theme.breakpoints.down('sm')]: {
+//     flexWrap: 'wrap',
+//   },
+// }));
+
+// After
 export const StyledGroup = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   [theme.breakpoints.down('sm')]: {
-    flexWrap: 'wrap',
+    '&:last-child': {
+      marginLeft: 'auto',
+    },
+  },
+  '&:first-child': {
+    marginRight: 'auto',
   },
 }));
 

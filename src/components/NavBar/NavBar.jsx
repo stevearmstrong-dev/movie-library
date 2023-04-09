@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AppBar, IconButton, Toolbar, Drawer, Button, Avatar, useMediaQuery } from '@mui/material';
 import { Menu, AccountCircle, Brightness4, Brightness7 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-import { useTheme }from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 import { StyledDiv, StyledMain, StyledToolbar, MenuButton, StyledGroup, ThemeToggleButton, NavDrawer, DrawerPaper } from './styles';
 import Sidebar from '../Sidebar/Sidebar';
 
@@ -22,7 +22,7 @@ const NavBar = () => {
             color="inherit"
             edge="start"
             style={{ outline: 'none' }}
-            onClick={() => {}}
+            onClick={() => setMobileOpen(!mobileOpen)}
           >
             <Menu />
           </MenuButton>
@@ -62,7 +62,16 @@ const NavBar = () => {
             )}
           </StyledGroup>
           {/* If we are on mobile, show the search last */}
-          {isMobile && 'Search...'}
+          {/* Before */}
+          {/* {isMobile && 'Search...'} */}
+          {isMobile && (
+          <Toolbar>
+            <StyledGroup>
+              Search...
+            </StyledGroup>
+          </Toolbar>
+          )}
+
         </StyledToolbar>
 
       </AppBar>
@@ -71,7 +80,7 @@ const NavBar = () => {
           {isMobile ? (
             <Drawer
               variant="temporary"
-              anchor="right"
+              anchor="left"
               open={mobileOpen}
               classes={{ paper: DrawerPaper }}
               ModalProps={{ keepMounted: true }}

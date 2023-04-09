@@ -64,7 +64,7 @@ const Sidebar = ({ setMobileOpen }) => {
       </List>
       <Divider />
       <List>
-        <ListSubheader>Categories</ListSubheader>
+        <ListSubheader>Genres</ListSubheader>
         {categories.map(({ label, value }) => (
           <StyledLinks key={value} to="/">
             {/* We are creating only one list item instead of many list items.This is achieved by using an Array to loop through */}
