@@ -1,6 +1,8 @@
 import { styled } from '@mui/system';
 import { IconButton, Toolbar } from '@mui/material';
 
+const drawerWidth = '240px';
+
 export const StyledDiv = styled('div')({
   display: 'flex',
   height: '100%',
@@ -43,4 +45,22 @@ export const ThemeToggleButton = styled(IconButton)(({ theme }) => ({
 }));
 
 export const LinkButton = styled(IconButton)(({ theme }) => ({
+  '&:hover': {
+    color: 'white !important',
+    textDecoration: 'none',
+  },
+}));
+
+export const NavDrawer = styled('div')(({ theme }) => ({
+  // Applicable for everything that is not mobile.
+  [theme.breakpoints.up('sm')]: {
+    // stored in a variable because sidebar has constant width
+    width: drawerWidth,
+    flexShrink: 0,
+  },
+
+}));
+
+export const DrawerPaper = styled('div')(({ theme }) => ({
+  width: drawerWidth,
 }));
