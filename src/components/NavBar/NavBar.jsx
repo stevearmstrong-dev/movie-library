@@ -22,7 +22,7 @@ const NavBar = () => {
             color="inherit"
             edge="start"
             style={{ outline: 'none' }}
-            onClick={() => setMobileOpen(!mobileOpen)}
+            onClick={() => setMobileOpen((prevMobileOpen) => !prevMobileOpen)}
           >
             <Menu />
           </MenuButton>
@@ -82,6 +82,7 @@ const NavBar = () => {
               variant="temporary"
               anchor="left"
               open={mobileOpen}
+              onClose={() => setMobileOpen((prevMobileOpen) => !prevMobileOpen)}
               classes={{ paper: DrawerPaper }}
               ModalProps={{ keepMounted: true }}
             >
