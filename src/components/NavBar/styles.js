@@ -66,7 +66,7 @@ export const StyledGroup = styled('div')(({ theme }) => ({
       marginLeft: 'auto',
     },
   },
-  '&:first-child': {
+  '&:first-of-type".': {
     marginRight: 'auto',
   },
 }));
