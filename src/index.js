@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 // import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Provider } from 'react-redux';
 import store from './app/store';
 import App from './components/App';
