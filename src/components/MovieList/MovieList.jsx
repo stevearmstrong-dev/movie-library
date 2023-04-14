@@ -9,7 +9,7 @@ const MovieList = ({ movies }) => {
   return (
     <StyledMoviesContainer>
       {movies.results.map((movie, index) => (
-        <Movie key={index} movie={movie} i={index} />
+        <Movie key={index} movie={movie} index={index} />
       ))}
     </StyledMoviesContainer>
   );
