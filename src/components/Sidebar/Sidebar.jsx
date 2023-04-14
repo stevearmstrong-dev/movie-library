@@ -4,17 +4,21 @@ import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 import { ImageLink, StyledLinks, GenreImages } from './styles';
 import StevieMovieLogoNew from '../../assets/StevieMovieLogoNew.png';
+import { useGetGenresQuery } from '../../services/TMDB';
+import genreIcons from '../../assets/Genres';
 
 // const redLogo = 'https://fontmeme.com/permalink/210930/8531c658a743debe1e1aa1a2fc82006e.png';
 
 // const blueLogo = 'https://fontmeme.com/permalink/210930/6854ae5c7f76597cf8680e48a2c8a50a.png';
 
-const demoCategories = [
-  { label: 'Comedy', value: 'Comedy' },
-  { label: 'Action', value: 'Action' },
-  { label: 'Horror', value: 'Horror' },
-  { label: 'Animation', value: 'Animation' },
-];
+// dummy data
+// const demoCategories = [
+//   { label: 'Comedy', value: 'Comedy' },
+//   { label: 'Action', value: 'Action' },
+//   { label: 'Horror', value: 'Horror' },
+//   { label: 'Animation', value: 'Animation' },
+// ];
+
 const categories = [
   { label: 'Popular', value: 'popular' },
   { label: 'Top Rated', value: 'top_rated' },
@@ -31,6 +35,9 @@ const logoStyle = {
 
 const Sidebar = ({ setMobileOpen }) => {
   const theme = useTheme();
+  const { data, isFetching } = useGetGenresQuery();
+
+  console.log(data);
   return (
     <>
       <StyledLinks to="/">
@@ -49,29 +56,35 @@ const Sidebar = ({ setMobileOpen }) => {
       </StyledLinks>
       <Divider />
       <List>
-        <ListSubheader>Categories</ListSubheader>
-        {demoCategories.map(({ label, value }) => (
-          <StyledLinks key={value} to="/">
+        <ListSubheader>Genres</ListSubheader>
+        {isFetching ? (
+          <Box display="flex" justifyContent="center">
+
+            <CircularProgress />
+          </Box>
+        ) : data.genres.map(({ name, id }) => (
+          <StyledLinks key={name} to="/">
             {/* We are creating only one list item instead of many list items.This is achieved by using an Array to loop through */}
             <ListItem onClick={() => {}} button>
-              {/* <ListItemIcon>
-                <img src={redLogo} className={GenreImages} height={30} />
-              </ListItemIcon> */}
-              <ListItemText primary={label} />
+              <ListItemIcon>
+                <GenreImages src={genreIcons[name.toLowerCase()]} height={30} />
+
+              </ListItemIcon>
+              <ListItemText primary={name} />
             </ListItem>
           </StyledLinks>
         ))}
       </List>
       <Divider />
       <List>
-        <ListSubheader>Genres</ListSubheader>
+        <ListSubheader>Categories</ListSubheader>
         {categories.map(({ label, value }) => (
           <StyledLinks key={value} to="/">
             {/* We are creating only one list item instead of many list items.This is achieved by using an Array to loop through */}
             <ListItem onClick={() => {}} button>
-              {/* <ListItemIcon>
-                <img src={redLogo} className={GenreImages} height={30} />
-              </ListItemIcon> */}
+              <ListItemIcon>
+                <GenreImages src={genreIcons[label.toLowerCase()]} height={30} />
+              </ListItemIcon>
               <ListItemText primary={label} />
             </ListItem>
           </StyledLinks>
