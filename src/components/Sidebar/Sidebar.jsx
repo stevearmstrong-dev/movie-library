@@ -2,10 +2,12 @@ import React, { useEffect } from 'react';
 import { Divider, List, ListItem, ListItemText, ListSubheader, ListItemIcon, Box, CircularProgress } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
-import { ImageLink, StyledLinks, GenreImages } from './styles';
+import { useDispatch, useSelector } from 'react-redux';
+import { ImageLink, StyledLinks, StyledImages } from './styles';
 import StevieMovieLogoNew from '../../assets/StevieMovieLogoNew.png';
 import { useGetGenresQuery } from '../../services/TMDB';
-import genreIcons from '../../assets/Genres';
+import assetsIcons from '../../assets/Genres';
+import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
 
 // const redLogo = 'https://fontmeme.com/permalink/210930/8531c658a743debe1e1aa1a2fc82006e.png';
 
@@ -36,8 +38,10 @@ const logoStyle = {
 const Sidebar = ({ setMobileOpen }) => {
   const theme = useTheme();
   const { data, isFetching } = useGetGenresQuery();
+  const dispatch = useDispatch();
+  const { genreIdOrCategoryName } = useSelector((state) => state.currentGenreOrCategory);
 
-  console.log(data);
+  console.log(genreIdOrCategoryName);
   return (
     <>
       <StyledLinks to="/">
@@ -65,9 +69,9 @@ const Sidebar = ({ setMobileOpen }) => {
         ) : data.genres.map(({ name, id }) => (
           <StyledLinks key={name} to="/">
             {/* We are creating only one list item instead of many list items.This is achieved by using an Array to loop through */}
-            <ListItem onClick={() => {}} button>
+            <ListItem onClick={() => dispatch(selectGenreOrCategory(id))} button>
               <ListItemIcon>
-                <GenreImages src={genreIcons[name.toLowerCase()]} height={30} />
+                <StyledImages src={assetsIcons[name.toLowerCase()]} height={30} />
 
               </ListItemIcon>
               <ListItemText primary={name} />
@@ -81,9 +85,9 @@ const Sidebar = ({ setMobileOpen }) => {
         {categories.map(({ label, value }) => (
           <StyledLinks key={value} to="/">
             {/* We are creating only one list item instead of many list items.This is achieved by using an Array to loop through */}
-            <ListItem onClick={() => {}} button>
+            <ListItem onClick={() => dispatch(selectGenreOrCategory(value))} button>
               <ListItemIcon>
-                <GenreImages src={genreIcons[label.toLowerCase()]} height={30} />
+                <StyledImages src={assetsIcons[label.toLowerCase()]} height={30} />
               </ListItemIcon>
               <ListItemText primary={label} />
             </ListItem>

@@ -16,6 +16,6 @@ export const StyledLinks = styled(Link)(({ theme }) => ({
   textDecoration: 'none',
 }));
 
-export const GenreImages = styled('img')(({ theme }) => ({
+export const StyledImages = styled('img')(({ theme }) => ({
 //   width: '70%',
 }));
