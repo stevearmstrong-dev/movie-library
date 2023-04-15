@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 import { StyledDiv, StyledMain, StyledToolbar, MenuButton, StyledGroup, ThemeToggleButton, NavDrawer, DrawerPaper } from './styles';
 import Sidebar from '../Sidebar/Sidebar';
+import Search from '../Search/Search';
 
 const NavBar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -37,7 +38,7 @@ const NavBar = () => {
             {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
           </ThemeToggleButton>
           <StyledGroup>
-            {!isMobile && 'Search...'}
+            {!isMobile && <Search />}
           </StyledGroup>
           <StyledGroup>
             {!isAuthenticated ? (
@@ -67,7 +68,7 @@ const NavBar = () => {
           {isMobile && (
           <Toolbar>
             <StyledGroup>
-              Search...
+              <Search />
             </StyledGroup>
           </Toolbar>
           )}
