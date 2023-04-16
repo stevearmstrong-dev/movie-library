@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ImageLink, StyledLinks, StyledImages } from './styles';
 import StevieMovieLogoNew from '../../assets/StevieMovieLogoNew.png';
 import { useGetGenresQuery } from '../../services/TMDB';
-import assetsIcons from '../../assets/Genres';
+import assetsIcons from '../../assets/Genres/index';
 import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
 
 // const redLogo = 'https://fontmeme.com/permalink/210930/8531c658a743debe1e1aa1a2fc82006e.png';
