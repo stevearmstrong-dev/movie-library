@@ -43,24 +43,25 @@ const NavBar = () => {
             {!isMobile && <Search />}
           </StyledGroup>
           <StyledGroup>
+          {/* Uncomment this line later */}
             {!isAuthenticated ? (
               <Button color="inherit" onClick={() => {}}>
                 {/* nbsp stands for a space between the login button and the icon */}
                 Login &nbsp; <AccountCircle />
               </Button>
             ) : (
-              <Button
+              <Button disabled
                 color="inherit"
                 component={Link}
                 to={`/profile/:id`}
                 onClick={() => {}}
               >
-                {!isMobile && <>My Movies &nbsp;</>}
-                <Avatar
+                {/* {!isMobile && <>My Movies &nbsp;</>} */}
+                {/* <Avatar
                   style={{ width: 30, height: 30 }}
                   alt="Profile"
                   src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
-                />
+                /> */}
               </Button>
             )}
           </StyledGroup>
