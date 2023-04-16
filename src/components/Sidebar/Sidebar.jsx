@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ImageLink, StyledLinks, StyledImages } from './styles';
 import StevieMovieLogoNew from '../../assets/StevieMovieLogoNew.png';
 import { useGetGenresQuery } from '../../services/TMDB';
-import assetsIcons from '../../assets/Genres/index';
+import genreIcons from '../../assets/Genres/index';
 import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
 
 // const redLogo = 'https://fontmeme.com/permalink/210930/8531c658a743debe1e1aa1a2fc82006e.png';
@@ -71,7 +71,7 @@ const Sidebar = ({ setMobileOpen }) => {
             {/* We are creating only one list item instead of many list items.This is achieved by using an Array to loop through */}
             <ListItem onClick={() => dispatch(selectGenreOrCategory(id))} button>
               <ListItemIcon>
-                <StyledImages src={assetsIcons[name.toLowerCase()]} height={30} />
+                <StyledImages src={genreIcons[name.toLowerCase()]} height={30} />
 
               </ListItemIcon>
               <ListItemText primary={name} />
@@ -87,7 +87,7 @@ const Sidebar = ({ setMobileOpen }) => {
             {/* We are creating only one list item instead of many list items.This is achieved by using an Array to loop through */}
             <ListItem onClick={() => dispatch(selectGenreOrCategory(value))} button>
               <ListItemIcon>
-                <StyledImages src={assetsIcons[label.toLowerCase()]} height={30} />
+                <StyledImages src={genreIcons[label.toLowerCase()]} height={30} />
               </ListItemIcon>
               <ListItemText primary={label} />
             </ListItem>
