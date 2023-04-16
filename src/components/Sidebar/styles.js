@@ -18,4 +18,6 @@ export const StyledLinks = styled(Link)(({ theme }) => ({
 
 export const StyledImages = styled('img')(({ theme }) => ({
 //   width: '70%',
+  // This allows the image to be inverted when the theme is dark
+  filter: theme.palette.mode === 'dark' && 'invert(1)',
 }));
