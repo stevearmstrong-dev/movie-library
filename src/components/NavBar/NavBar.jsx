@@ -3,7 +3,7 @@ import { AppBar, IconButton, Toolbar, Drawer, Button, Avatar, useMediaQuery } fr
 import { Menu, AccountCircle, Brightness4, Brightness7 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
-import { StyledDiv, StyledMain, StyledToolbar, MenuButton, StyledGroup, ThemeToggleButton, NavDrawer, DrawerPaper } from './styles';
+import {StyledDiv, StyledMain, StyledToolbar, MenuButton, StyledGroup, ThemeToggleButton, NavDrawer, DrawerPaper } from './styles';
 import Sidebar from '../Sidebar/Sidebar';
 import Search from '../Search/Search';
 import { ColorModeContext } from '../../utils/ToggleColorMode';
@@ -97,7 +97,7 @@ const NavBar = () => {
             <Drawer
               classes={{
                 paper: DrawerPaper }}
-                // because we always want the sidebar visible
+                // because we always want the sidebar to be visible
               variant="permanent"
               // sidebar is now present on the left side of the app
               anchor="left"
