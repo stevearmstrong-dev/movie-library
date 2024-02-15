@@ -1,2 +1,3 @@
 # A movie library App. (Work in Progress)
-<img width="1438" alt="Screenshot 2023-04-24 at 5 04 20 PM" src="https://user-images.githubusercontent.com/113034949/234104158-7d50aa21-b236-4b44-928a-e2e4874f42b9.png">
+<img width="1440" alt="Screenshot 2024-02-14 at 9 48 09 PM" src="https://github.com/stevearmstrong-dev/movie-library/assets/113034949/6de80c9e-5b5e-411e-8315-41c795842264">
+
