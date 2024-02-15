@@ -1,7 +1,7 @@
 # A movie library App. (Work in Progress)
 
-Next steps (TODO ):
-
+### Next steps ( TODO )
+--------------------
 - Replace current logo with the newer design.
 - Implement Authentication
 - Authorization,
