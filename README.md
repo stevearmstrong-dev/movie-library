@@ -4,7 +4,7 @@
 --------------------
 - Replace current logo with the newer design.
 - Implement Authentication
-- Authorization,
+- Authorization
 - Implement user input for light and dark theme.
 - AI Chatbot
 - AI search bar
