@@ -11,7 +11,7 @@
 - Code cleanup
 - Updated README
 
-https://www.steviemovie.netlify.app
+https://steviemovie.netlify.app
 
 
   
