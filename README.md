@@ -1,4 +1,4 @@
-# A movie library App. (Work in Progress)
+# A movie library App (Work in Progress)
 
 ### Next steps ( TODO )
 --------------------
