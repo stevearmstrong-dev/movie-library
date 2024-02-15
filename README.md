@@ -2,10 +2,10 @@
 
 ### Next steps ( TODO )
 --------------------
-- Replace current logo with the newer design.
+- Replace current logo with the newer design
 - Implement Authentication
 - Authorization
-- Implement user input for light and dark theme.
+- Implement user input for light and dark theme
 - AI Chatbot
 - AI search bar
 - Code cleanup
